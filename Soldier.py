@@ -124,10 +124,11 @@ class Soldier(pygame.sprite.Sprite):
         self.rect.y += dy
         
         if self.char_type == 'player':
-            if (self.rect.right > screen.get_width() - SCROLL_THRESH and bg_scroll < (self.level_length * TILE_SIZE) - screen.get_height())\
-                or (self.rect.left < SCROLL_THRESH and bg_scroll < abs(dx)):
+            if (self.rect.right > screen.get_width() - screen.get_width()/3.5 and bg_scroll < (self.level_length * TILE_SIZE) - screen.get_height())\
+                or (self.rect.left < screen.get_width()/3.5 and bg_scroll < abs(dx)):
                 self.rect.x -= dx
                 screen_scroll = -dx
+             #   print(screen.get_width(), self.rect.left)
 
         return screen_scroll
     
